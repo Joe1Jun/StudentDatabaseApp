@@ -14,17 +14,17 @@ public class Student {
 	private static int costOfCourse = 600;
 	private static int id = 1000;
 
-	private Scanner input = new Scanner(System.in);
+	private Scanner input;
 
-	public Student() {
-		
+	public Student(Scanner input) {
+        this.courses = new ArrayList<>(); // Initialize the courses list
 
-		this.firstName = getFirstNameFromInput();
-		this.lastName = getLastNameFromInput();
-		this.gradeYear = getGradeYearFromInput();
-		this.studentId = setStudentId();
-		 this.courses = new ArrayList<>(); 
-	}
+        this.firstName = getFirstNameFromInput(input);
+        this.lastName = getLastNameFromInput(input);
+        this.gradeYear = getGradeYearFromInput(input);
+        this.studentId = setStudentId();
+        enroll(input);
+    }
 
 	// generate an Id
 
@@ -35,7 +35,7 @@ public class Student {
 
 	}
 
-	public void enroll() {
+	public void enroll(Scanner input) {
 
 		System.out.println("Enter courses (type 'done' to finish):");
 		while (true) {
@@ -48,17 +48,17 @@ public class Student {
 
 	}
 
-	private String getFirstNameFromInput() {
+	private String getFirstNameFromInput(Scanner input) {
 		System.out.println("Enter student's first name:");
 		return input.nextLine();
 	}
 
-	private String getLastNameFromInput() {
+	private String getLastNameFromInput(Scanner input) {
 		System.out.println("Enter student's last name:");
 		return input.nextLine();
 	}
 
-	private int getGradeYearFromInput() {
+	private int getGradeYearFromInput(Scanner input) {
 		System.out.println("Enter student class level");
 		System.out.println("1. Freshman");
 		System.out.println("2. Sophomore");
