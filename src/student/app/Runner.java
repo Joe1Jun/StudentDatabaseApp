@@ -14,7 +14,8 @@ public class Runner {
 
         while (keepRunning) {
 
-            Student studentTemp = new Student(input);
+            Student studentTemp = new Student();
+            studentTemp.enroll();
             students.add(studentTemp);
 
             int choice;
@@ -32,6 +33,8 @@ public class Runner {
         for (Student student : students) {
             System.out.println(student.getFirstName() + " " + student.getLastName());
             System.out.println("Grade Year: " + student.getGradeYear());
+            System.out.println("Student Id:  " + student.getStudentId());
+            System.out.println("Courses enrolled in " + student.getCourses());
         }
 
         input.close();
